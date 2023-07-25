@@ -1,0 +1,30 @@
+------    Ques 1    Find the customer who has placed the largest single order in terms of total amount.
+------    Ques 2    Display the top 5 products that have the highest revenue generated in each product category.
+------    Ques 3    List the employees who have sales greater than the average sales of all employees.
+------    Ques 4    Find the customers who have placed orders in consecutive months.
+------    Ques 5    Display the name and email address of all customers who have placed at least one order but not more than three orders.
+------    Ques 6    List the products that were sold at least once in each year.
+------    Ques 7    Find the customers who have placed orders for products from all product categories.
+------    Ques 8    Display the top 3 product subcategories with the highest average product rating.
+------    Ques 9    Retrieve the employees who have the same job title as their manager.
+------    Ques 10    List the customers who have placed orders on all weekdays (Monday to Friday).
+------    Ques 11    Retrieve the top 10 customers who have the highest average order amount.
+------    Ques 12    List the products that were sold in all years from the year 2018 to 2023 (inclusive).
+------    Ques 13    Find the employees who have generated sales for all product subcategories.
+------    Ques 14    Display the name and email address of all customers who have placed orders in two consecutive months.
+------    Ques 15    Retrieve the employees who have never been assigned as a manager.
+------    Ques 16    List the top 3 employees who have the highest number of subordinates.
+------    Ques 17    Find the products that have the same standard cost as any other product in the same product category.
+------    Ques 18    Display the name and email address of all customers who have placed an order within the last 7 days.
+------    Ques 19    Retrieve the products that were sold in both the year 2021 and 2022, but not in 2023.
+------    Ques 20    List the customers who have made purchases in all states where the company operates.
+------    Ques 21    Retrieve the products that have never been part of any product bundle (subcomponent).
+------    Ques 22    List the products that have the same list price as any other product in the same product category and subcategory.
+------    Ques 23    Find the employees who have generated sales for all customers located in the same country as their own location.
+------    Ques 24    Display the top 3 customers who have made the highest total purchases in each year since 2021.
+------    Ques 25    Retrieve the employees who have achieved a higher total sales amount than their manager at any point in time.
+------    Ques 26    List the products with the number of days since they were last ordered.
+------    Ques 27    Find the customers who have placed orders for all the products that have ever been sold.
+------    Ques 28    Display the top 5 product subcategories with the highest average product rating, considering only products with at least 5 reviews.
+------    Ques 29    Retrieve the employees who have made at least one sale in each quarter of the year 2022.
+------    Ques 30    List the products that have been ordered by all customers with a credit limit greater than $15,000.
