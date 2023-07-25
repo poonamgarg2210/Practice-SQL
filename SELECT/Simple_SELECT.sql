@@ -1,5 +1,4 @@
 ---   Ques 1    Retrieve the first 10 rows from the "Customer" table.
-6uutjtjuujuyujtjutytyhyty
 ---   Ques 2    List all products and their corresponding product categories from the "Product" and "ProductCategory" tables.
 ---   Ques 3    Find the total number of orders in the "SalesOrderHeader" table.
 ---   Ques 4    Display the top 5 customers based on their total order amount.
