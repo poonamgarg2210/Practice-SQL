@@ -96,19 +96,116 @@ GROUP BY D.Name
 
 
 ---   Ques 14    Display the first and last names of employees who have the same first name as their manager.
----   Ques 15    Retrieve the top 5 customers with the highest credit limit.
+---   Ques 15    Retrieve the top 5 customers with the highest Total Due.
+
+SELECT Top 5 C.CustomerID, P.FirstName, P.LastName, Sum(soh.TotalDue) TotalAmountPurchased
+FROM Sales.Customer C
+Join Person.Person P
+ON C.PersonID = P.BusinessEntityID
+Join Sales.SalesOrderHeader soh ON C.CustomerID = soh.CustomerID
+Group BY C.CustomerID, FirstName, LastName
+Order BY TotalAmountPurchased DESC
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
 ---   Ques 16    List all products with their corresponding product categories and subcategories.
+
+SELECT PC.Name CategoryName, PS.Name SubCategoryName, P.Name ProductName  
+FROM Production.Product P 
+JOIN Production.ProductSubcategory PS 
+ON P.ProductSubcategoryID = PS. ProductSubcategoryID
+JOIN Production.ProductCategory PC 
+ON P.ProductSubcategoryID = PC.ProductCategoryID
+GROUP BY PC.Name, PS.Name, P.Name
+Order BY P.Name
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
 ---   Ques 17    Find the total sales amount for each year and month from the "SalesOrderHeader" table.
+
+
+SELECT datepart(year,OrderDate) AS [YEAR], datepart(month,OrderDate) AS [MONTH], SUM(TotalDue) AS [Total Amount]
+FROM Sales.SalesOrderHeader
+GROUP BY datepart(year,OrderDate), datepart(month,OrderDate)
+Order BY datepart(year,OrderDate), datepart(month,OrderDate)
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
 ---   Ques 18    Display the name, email, and phone number of customers who have placed more than 5 orders.
+
+SELECT 
+    p.FirstName + ' ' + p.LastName AS CustomerName,
+    ea.EmailAddress,
+    ph.PhoneNumber
+FROM 
+    Person.Person p
+JOIN 
+    Sales.Customer c ON p.BusinessEntityID = c.PersonID
+JOIN 
+    Sales.SalesOrderHeader soh ON c.CustomerID = soh.CustomerID
+JOIN
+    Person.EmailAddress ea ON p.BusinessEntityID = ea.BusinessEntityID
+JOIN
+    Person.PersonPhone ph ON p.BusinessEntityID = ph.BusinessEntityID
+GROUP BY 
+    p.FirstName, p.LastName, ea.EmailAddress, ph.PhoneNumber
+HAVING 
+    COUNT(soh.SalesOrderID) > 5;
+
+
+	----------------------------------------------------------------------------------------------------------------------
+
+
 ---   Ques 19    Retrieve all employees who were hired between '2010-01-01' and '2015-12-31'.
 ---   Ques 20    List the products with a reorder point less than the average reorder point for all products.
 ---   Ques 21    Retrieve the names and phone numbers of customers who have placed at least one order but have not been assigned a sales representative.
 ---   Ques 22    List the products with their average rating and the number of reviews they have received.
 ---   Ques 23    Find the total number of orders for each employee in the "SalesOrderHeader" table.
+
+
 ---   Ques 24    Display the top 5 product categories with the highest number of unique products.
+
+SELECT TOP 5 PC.Name CategoryName, Distinct(P.Name) AS ProductName  
+FROM Production.Product P 
+JOIN Production.ProductSubcategory PS 
+ON P.ProductSubcategoryID = PS. ProductSubcategoryID
+JOIN Production.ProductCategory PC 
+ON P.ProductSubcategoryID = PC.ProductCategoryID
+GROUP BY PC.Name, P.Name
+
+
 ---   Ques 25    Retrieve the name and job title of employees who have a job title containing the word "Manager."
+
+SELECT HRE.FirstName + ' ' + HRE.LastName AS CustomrtName, JobTitle
+FROM HumanResources.vEmployee AS HRE WHERE HRE.JobTitle Like '%manager%'
+
+
+-------------------------------------------------------------------------------------------------------------------------
 ---   Ques 26    List all customers who have a credit limit greater than the average credit limit of all customers.
 ---   Ques 27    Find the total sales amount for each customer from the "SalesOrderHeader" table, excluding the customers with no sales.
+
+ SELECT c.CustomerID,
+    CONCAT(p.FirstName, ' ', p.LastName) AS CustomerName,
+    SUM(soh.TotalDue) AS TotalSalesAmount
+FROM
+    Sales.Customer c
+JOIN
+    Person.Person p ON c.PersonID = p.BusinessEntityID
+JOIN
+    Sales.SalesOrderHeader soh ON c.CustomerID = soh.CustomerID
+GROUP BY
+    c.CustomerID, p.FirstName, p.LastName
+HAVING
+    SUM(soh.TotalDue) > 0;
+
+
+	-------------------------------------------------------------------------------------------------------------------------
+
 ---   Ques 28    Display the names and email addresses of employees whose job titles start with the letter "S."
 ---   Ques 29    Retrieve the products with their respective colors from the "Product" and "ProductProductPhoto" tables.
 ---   Ques 30    List the products that have been discontinued.
