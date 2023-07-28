@@ -207,5 +207,17 @@ HAVING
 	-------------------------------------------------------------------------------------------------------------------------
 
 ---   Ques 28    Display the names and email addresses of employees whose job titles start with the letter "S."
+
+SELECT HRE.FirstName + ' ' + HRE.LastName AS EMployeeName, EmailAddress
+FROM HumanResources.vEmployee AS HRE 
+WHERE HRE.JobTitle Like 'S%'
+
+-----------------------------------------------------------------------------------------------------------------------------
+
 ---   Ques 29    Retrieve the products with their respective colors from the "Product" and "ProductProductPhoto" tables.
+
+
+SELECT Name, Color FROM Production.Product
+
+---------------------------------------------------------------------------------------------------------------------------
 ---   Ques 30    List the products that have been discontinued.
