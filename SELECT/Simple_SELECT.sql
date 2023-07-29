@@ -208,7 +208,7 @@ HAVING
 
 ---   Ques 28    Display the names and email addresses of employees whose job titles start with the letter "S."
 
-SELECT HRE.FirstName + ' ' + HRE.LastName AS EMployeeName, EmailAddress
+SELECT HRE.FirstName + ' ' + HRE.LastName AS EmployeeName, EmailAddress
 FROM HumanResources.vEmployee AS HRE 
 WHERE HRE.JobTitle Like 'S%'
 
